@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DairyPulse | Cow 024</title>
+<style>
+:root{--navy:#173b5c;--teal:#16877f;--bg:#f3f7f9;--ink:#203442;--muted:#607783;--line:#d9e4e9;--green:#159653;--yellow:#c88800;--red:#c83f42}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+header{background:linear-gradient(120deg,#153955,#1a7777);color:white;padding:24px 18px}
+.wrap{max-width:1050px;margin:auto}header .brand{font-size:12px;letter-spacing:2px;opacity:.8;font-weight:bold}h1{margin:8px 0 4px;font-size:30px}header p{margin:0;opacity:.9}
+main{max-width:1050px;margin:20px auto;padding:0 14px}
+.status{display:flex;gap:14px;align-items:center;padding:18px 20px;background:#e4f6ec;border:1px solid #b3e3c6;border-radius:15px;margin-bottom:16px}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--green);flex:none}.status h2{margin:0;color:var(--green);font-size:22px}.status p{margin:5px 0 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 3px 12px #173b5c0a}
+.card h3{margin:0 0 14px;color:var(--navy);font-size:17px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #edf1f3;font-size:14px}.row:last-child{border-bottom:0}.row span:first-child{color:var(--muted)}.row strong{text-align:right}
+.pill{border-radius:20px;padding:4px 9px;font-size:12px;font-weight:bold;background:#e3f5eb;color:var(--green)}
+.alert{padding:13px;border-radius:10px;background:#fff5dc;border:1px solid #f1d17d;margin-top:8px}
+.alert strong{color:#986400}.fine{font-size:12px;color:var(--muted);line-height:1.5}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button{border:0;border-radius:9px;padding:11px 14px;font-weight:bold;cursor:pointer;background:var(--navy);color:white}
+button.secondary{background:#e8f0f4;color:var(--navy)}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:white}
+textarea{min-height:75px;grid-column:1/-1}.full{grid-column:1/-1}
+#log{font-size:13px;line-height:1.6;white-space:pre-wrap}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 10px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.status{align-items:flex-start}h1{font-size:25px}form{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><div class="wrap"><div class="brand">DAIRYPULSE • SMART DAIRY FARM MANAGEMENT</div><h1>Cow Passport — #024</h1><p>Illustrative demo profile • Not connected to a live farm database</p></div></header>
+<main>
+<section class="status" id="statusBox"><span class="dot" id="statusDot"></span><div><h2 id="statusTitle">GREEN — Routine</h2><p id="statusDesc">Demo status: routine monitoring. Confirm status using current farm records and veterinary guidance.</p></div></section>
+<div class="grid">
+<section class="card"><h3>🐄 Basic Information</h3>
+<div class="row"><span>Cow ID</span><strong>024</strong></div><div class="row"><span>Breed</span><strong>Holstein</strong></div><div class="row"><span>Sex</span><strong>Female</strong></div><div class="row"><span>Birth date</span><strong>12 Mar 2021 (demo)</strong></div><div class="row"><span>Lactation stage</span><strong>Mid-lactation</strong></div><div class="row"><span>Body condition score</span><strong>3.25 / 5 (demo)</strong></div></section>
+<section class="card"><h3>🥛 Milk Production</h3>
+<div class="row"><span>Daily milk yield</span><strong id="milkDisplay">28.5 L/day</strong></div><div class="row"><span>Change vs last week</span><strong>+2.1 L (demo)</strong></div><div class="row"><span>Milk fat</span><strong>3.8% (demo)</strong></div><div class="row"><span>Milk protein</span><strong>3.2% (demo)</strong></div><div class="row"><span>Days in milk</span><strong>85 (demo)</strong></div></section>
+<section class="card"><h3>🩺 Health Status</h3>
+<div class="row"><span>Temperature</span><strong>38.5 °C (demo)</strong></div><div class="row"><span>Respiration rate</span><strong>24/min (demo)</strong></div><div class="row"><span>Appetite</span><strong>Good (demo)</strong></div><div class="row"><span>Activity</span><strong>Normal (demo)</strong></div><div class="row"><span>Mastitis risk</span><strong>Low (demo)</strong></div></section>
+<section class="card"><h3>♻️ Reproduction</h3>
+<div class="row"><span>Last insemination</span><strong>15 Apr 2025 (demo)</strong></div><div class="row"><span>Pregnancy status</span><strong>Not pregnant (demo)</strong></div><div class="row"><span>Next heat estimate</span><strong>Estimate only</strong></div><p class="fine">Reproduction dates and status must be confirmed from actual farm records.</p></section>
+<section class="card"><h3>🔔 Alert Status</h3>
+<p class="fine">Choose a status to demonstrate how the profile changes. This does not diagnose illness; configure thresholds with the farm manager and veterinarian.</p>
+<div class="actions"><button onclick="setStatus('green')">GREEN • Routine</button><button onclick="setStatus('yellow')" style="background:#b47b00">YELLOW • Check</button><button onclick="setStatus('red')" style="background:#b9363b">RED • Urgent</button></div>
+<div class="alert" id="alertBox"><strong id="alertTitle">Routine monitoring</strong><div id="alertText">Records current; continue scheduled checks.</div></div></section>
+<section class="card"><h3>📝 Add a Farm Note</h3>
+<form id="noteForm"><div><label for="date">Date</label><input id="date" type="date" required></div><div><label for="kind">Record type</label><select id="kind"><option>Milk yield</option><option>Appetite</option><option>Health observation</option><option>Heat / reproduction</option><option>Treatment / vaccination</option><option>Other</option></select></div><div><label for="value">Value / observation</label><input id="value" placeholder="e.g. 27 L, appetite reduced" required></div><div><label for="worker">Recorded by</label><input id="worker" placeholder="Worker / manager" required></div><textarea id="notes" placeholder="Additional notes or follow-up needed (optional)"></textarea><div class="full"><button type="submit">Save note on this device</button> <button type="button" class="secondary" onclick="downloadLog()">Export records</button></div></form>
+<p class="fine">Demo limitation: notes are saved only in this browser/device. They are not synced to a farm database or visible to other users.</p><div id="log"></div></section>
+</div>
+<p class="fine" style="margin-top:16px">Important: all sample values on this demo page are illustrative, not actual records for Cow 024. A real deployment needs a hosted website, secure database, access controls, verified farm data, and veterinary-approved alert rules. RED means prompt assessment is needed, not a diagnosis.</p>
+</main><footer>DAIRYPULSE • Observe → Record → Investigate → Act → Measure</footer>
+<script>
+const colors={green:{title:'GREEN — Routine',desc:'Routine monitoring. Confirm status using current farm records and veterinary guidance.',color:'#159653',bg:'#e4f6ec',border:'#b3e3c6',alert:'Routine monitoring',txt:'Records current; continue scheduled checks.'},yellow:{title:'YELLOW — Check',desc:'An unusual change or missing record needs verification.',color:'#c88800',bg:'#fff5dc',border:'#f1d17d',alert:'Check and verify',txt:'Review recent records, inspect the cow, and assign follow-up.'},red:{title:'RED — Urgent',desc:'A high-priority warning or serious observed sign needs prompt assessment.',color:'#c83f42',bg:'#fdebec',border:'#efb9bc',alert:'Prompt assessment',txt:'Check the cow promptly and contact the veterinarian when indicated.'}};
+function setStatus(s){const v=colors[s];document.getElementById('statusTitle').textContent=v.title;document.getElementById('statusDesc').textContent=v.desc;document.getElementById('statusDot').style.background=v.color;const b=document.getElementById('statusBox');b.style.background=v.bg;b.style.borderColor=v.border;document.getElementById('alertTitle').textContent=v.alert;document.getElementById('alertTitle').style.color=v.color;document.getElementById('alertText').textContent=v.txt;const a=document.getElementById('alertBox');a.style.background=v.bg;a.style.borderColor=v.border;}
+const dateEl=document.getElementById('date');dateEl.value=new Date().toISOString().slice(0,10);
+function getRecords(){try{return JSON.parse(localStorage.getItem('dp024records')||'[]')}catch(e){return []}}
+function render(){let arr=getRecords();document.getElementById('log').textContent=arr.length?'\\nSaved notes (this device):\\n'+arr.map((r,i)=>`${i+1}. ${r.date} | ${r.kind} | ${r.value} | ${r.worker}${r.notes?' | '+r.notes:''}`).join('\\n'):'No notes saved yet.'}
+document.getElementById('noteForm').addEventListener('submit',e=>{e.preventDefault();let arr=getRecords();arr.unshift({date:dateEl.value,kind:document.getElementById('kind').value,value:document.getElementById('value').value,worker:document.getElementById('worker').value,notes:document.getElementById('notes').value});localStorage.setItem('dp024records',JSON.stringify(arr));document.getElementById('value').value='';document.getElementById('notes').value='';render()});
+function downloadLog(){let blob=new Blob([JSON.stringify(getRecords(),null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='DairyPulse_Cow024_records.json';a.click();URL.revokeObjectURL(a.href)}
+render();
+</script></body></html>
